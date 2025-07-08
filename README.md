@@ -1,0 +1,1 @@
+# GitVersion Demo (Auto)
