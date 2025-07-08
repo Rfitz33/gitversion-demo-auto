@@ -9,37 +9,40 @@ jobs:
   version:
     runs-on: ubuntu-latest
     steps:
-      # 1. Get all commits so GitVersion can compute offsets
+      # 1) Checkout your repo
       - name: Check out code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # 2. Install GitVersion (v6) on the runner
+      # 2) Install .NET 9 so you can build net9.0 projects
+      - name: Setup .NET 9.x
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '9.x'
+
+      # 3) Install GitVersion (v6) on the runner
       - name: Install GitVersion
         uses: gittools/actions/gitversion/setup@v4
         with:
-          versionSpec: '6.x'          # grab the latest 6.x release
-          includePrerelease: false    # optional
+          versionSpec: '6.x'
 
-      # 3. Calculate version using your GitVersion.yml
+      # 4) Calculate the version
       - name: Determine version
         id: gitversion
         uses: gittools/actions/gitversion/execute@v4
-        # no inputs needed if your config file is GitVersion.yml in the repo root
 
-      # 4. Publish it in the run Summary
+      # 5) Publish it in the run Summary
       - name: Add version to run summary
         run: |
           echo "## 📦 Build Version" >> $GITHUB_STEP_SUMMARY
           echo "- **FullSemVer:** \`${{ steps.gitversion.outputs.fullSemVer }}\`" \
             >> $GITHUB_STEP_SUMMARY
 
-      # 5. (Optional) Build & run your demo console app
+      # 6) Build & run your net9.0 DemoApp
       - name: Build & run DemoApp
         working-directory: DemoApp
         run: |
           dotnet restore
           dotnet build --no-restore
           dotnet run --no-build
-
