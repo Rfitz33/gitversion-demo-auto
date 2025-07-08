@@ -1,0 +1,46 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "DemoApp/0.0.1-1": {
+        "dependencies": {
+          "GitVersion.MsBuild": "6.3.0"
+        },
+        "runtime": {
+          "DemoApp.dll": {}
+        }
+      },
+      "GitVersion.MsBuild/6.3.0": {
+        "dependencies": {
+          "System.Collections.Immutable": "9.0.2"
+        }
+      },
+      "System.Collections.Immutable/9.0.2": {}
+    }
+  },
+  "libraries": {
+    "DemoApp/0.0.1-1": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GitVersion.MsBuild/6.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-suTxk2mb96kABSJZrSGvzh9423fVbdOM18nSQOrLbp0tKrX+khi1ytfkHzoPI0I2xvmDzTsfKtHDd61Zc5MX0A==",
+      "path": "gitversion.msbuild/6.3.0",
+      "hashPath": "gitversion.msbuild.6.3.0.nupkg.sha512"
+    },
+    "System.Collections.Immutable/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QKh9+kczG7TQbQZ6tF2S6bK9B8ewHXEkYmMP2iqefzwJEfEkiflheAX6VEaPLJ6Tq9RoKuQ5R3qPYla6wJ6Opg==",
+      "path": "system.collections.immutable/9.0.2",
+      "hashPath": "system.collections.immutable.9.0.2.nupkg.sha512"
+    }
+  }
+}

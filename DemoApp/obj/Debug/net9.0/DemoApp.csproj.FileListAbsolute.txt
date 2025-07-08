@@ -1,0 +1,16 @@
+/Users/staff/Documents/GitHub/gitversion_demo/gitversion-demo-auto/DemoApp/obj/Debug/net9.0/DemoApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/staff/Documents/GitHub/gitversion_demo/gitversion-demo-auto/DemoApp/obj/Debug/net9.0/GitVersionInformation.g.cs
+/Users/staff/Documents/GitHub/gitversion_demo/gitversion-demo-auto/DemoApp/obj/Debug/net9.0/DemoApp.AssemblyInfoInputs.cache
+/Users/staff/Documents/GitHub/gitversion_demo/gitversion-demo-auto/DemoApp/obj/Debug/net9.0/DemoApp.AssemblyInfo.cs
+/Users/staff/Documents/GitHub/gitversion_demo/gitversion-demo-auto/DemoApp/obj/Debug/net9.0/DemoApp.csproj.CoreCompileInputs.cache
+/Users/staff/Documents/GitHub/gitversion_demo/gitversion-demo-auto/DemoApp/obj/Debug/net9.0/DemoApp.sourcelink.json
+/Users/staff/Documents/GitHub/gitversion_demo/gitversion-demo-auto/DemoApp/bin/Debug/net9.0/DemoApp
+/Users/staff/Documents/GitHub/gitversion_demo/gitversion-demo-auto/DemoApp/bin/Debug/net9.0/DemoApp.deps.json
+/Users/staff/Documents/GitHub/gitversion_demo/gitversion-demo-auto/DemoApp/bin/Debug/net9.0/DemoApp.runtimeconfig.json
+/Users/staff/Documents/GitHub/gitversion_demo/gitversion-demo-auto/DemoApp/bin/Debug/net9.0/DemoApp.dll
+/Users/staff/Documents/GitHub/gitversion_demo/gitversion-demo-auto/DemoApp/bin/Debug/net9.0/DemoApp.pdb
+/Users/staff/Documents/GitHub/gitversion_demo/gitversion-demo-auto/DemoApp/obj/Debug/net9.0/DemoApp.dll
+/Users/staff/Documents/GitHub/gitversion_demo/gitversion-demo-auto/DemoApp/obj/Debug/net9.0/refint/DemoApp.dll
+/Users/staff/Documents/GitHub/gitversion_demo/gitversion-demo-auto/DemoApp/obj/Debug/net9.0/DemoApp.pdb
+/Users/staff/Documents/GitHub/gitversion_demo/gitversion-demo-auto/DemoApp/obj/Debug/net9.0/DemoApp.genruntimeconfig.cache
+/Users/staff/Documents/GitHub/gitversion_demo/gitversion-demo-auto/DemoApp/obj/Debug/net9.0/ref/DemoApp.dll
