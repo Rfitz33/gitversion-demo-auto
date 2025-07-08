@@ -9,36 +9,49 @@ jobs:
   version:
     runs-on: ubuntu-latest
     steps:
+
+      # ─── Debug Step ─────────────────────────────────────────────────────
+      - name: Debug: list workspace
+        run: |
+          echo "PWD=$(pwd)"
+          ls -R .
+
+      # ─── Checkout ───────────────────────────────────────────────────────
       - name: Check out code
         uses: actions/checkout@v3
 
+      # ─── Setup .NET ────────────────────────────────────────────────────
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '6.x'
 
+      # ─── Install GitVersion ─────────────────────────────────────────────
       - name: Install GitVersion
         run: dotnet tool install --global GitVersion.Tool
 
+      # ─── Add dotnet tools to PATH ───────────────────────────────────────
       - name: Add dotnet global tools to PATH
         run: echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
 
+      # ─── Compute version ────────────────────────────────────────────────
       - name: Compute version
         id: gitversion
         run: |
-          VERSION=$(dotnet-gitversion /showvariable FullSemVer)
+          VERSION=$(dotnet-gitversion '/showvariable' 'FullSemVer')
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
+      # ─── Add to summary ─────────────────────────────────────────────────
       - name: Add to run summary
         run: |
           echo "## 📦 Build Version" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "- **Version:** \`${{ steps.gitversion.outputs.version }}\`" >> $GITHUB_STEP_SUMMARY
 
+      # ─── Build & run DemoApp ────────────────────────────────────────────
       - name: Build & run DemoApp
         working-directory: DemoApp
         run: |
           dotnet restore
           dotnet build --no-restore
           dotnet run --no-build
-
