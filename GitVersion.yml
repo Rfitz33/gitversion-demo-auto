@@ -3,5 +3,5 @@ tag-prefix: 'v'
 branches:
   main:
 #   increment: Minor
-#   increment: Patch     # switch to patch bumps instead
-    increment: Major     # switch to major bumps instead
+   increment: Patch     # switch to patch bumps instead
+#    increment: Major     # switch to major bumps instead
