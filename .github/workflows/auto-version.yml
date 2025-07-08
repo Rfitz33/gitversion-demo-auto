@@ -9,13 +9,7 @@ jobs:
   version:
     runs-on: ubuntu-latest
     steps:
-      - name: Debug:list workspace
-        run: |
-          echo "PWD=$(pwd)"
-          ls -R .
-
-      - name: Check out code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
@@ -26,7 +20,7 @@ jobs:
         run: dotnet tool install --global GitVersion.Tool
 
       - name: Add dotnet global tools to PATH
-        run: echo "${{ github.workspace }}/.dotnet/tools" >> $GITHUB_PATH
+        run: echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
 
       - name: Compute version
         id: gitversion
