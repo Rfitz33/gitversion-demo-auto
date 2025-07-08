@@ -1,5 +1,8 @@
+#next-version: '1.0.0'
 mode: ContinuousDelivery
 tag-prefix: 'v'
 branches:
   main:
-    increment: Minor
+#   increment: Minor
+#   increment: Patch     # switch to patch bumps instead
+    increment: Major     # switch to major bumps instead

@@ -12,29 +12,29 @@
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 static class GitVersionInformation
 {
-    public const string AssemblySemFileVer = "0.1.0.0";
-    public const string AssemblySemVer = "0.1.0.0";
+    public const string AssemblySemFileVer = "1.0.0.0";
+    public const string AssemblySemVer = "1.0.0.0";
     public const string BranchName = "main";
     public const string BuildMetaData = "";
     public const string CommitDate = "2025-07-08";
-    public const string CommitsSinceVersionSource = "5";
+    public const string CommitsSinceVersionSource = "12";
     public const string EscapedBranchName = "main";
-    public const string FullBuildMetaData = "Branch.main.Sha.f7f8721b5eccd7c3403e0ddc7cf071d1329bce17";
-    public const string FullSemVer = "0.1.0-5";
-    public const string InformationalVersion = "0.1.0-5+Branch.main.Sha.f7f8721b5eccd7c3403e0ddc7cf071d1329bce17";
-    public const string Major = "0";
-    public const string MajorMinorPatch = "0.1.0";
-    public const string Minor = "1";
+    public const string FullBuildMetaData = "Branch.main.Sha.734a0a0533acfeb46ce70c7849857c8c43ca978c";
+    public const string FullSemVer = "1.0.0-12";
+    public const string InformationalVersion = "1.0.0-12+Branch.main.Sha.734a0a0533acfeb46ce70c7849857c8c43ca978c";
+    public const string Major = "1";
+    public const string MajorMinorPatch = "1.0.0";
+    public const string Minor = "0";
     public const string Patch = "0";
     public const string PreReleaseLabel = "";
     public const string PreReleaseLabelWithDash = "";
-    public const string PreReleaseNumber = "5";
-    public const string PreReleaseTag = "5";
-    public const string PreReleaseTagWithDash = "-5";
-    public const string SemVer = "0.1.0-5";
-    public const string Sha = "f7f8721b5eccd7c3403e0ddc7cf071d1329bce17";
-    public const string ShortSha = "f7f8721";
-    public const string UncommittedChanges = "31";
+    public const string PreReleaseNumber = "12";
+    public const string PreReleaseTag = "12";
+    public const string PreReleaseTagWithDash = "-12";
+    public const string SemVer = "1.0.0-12";
+    public const string Sha = "734a0a0533acfeb46ce70c7849857c8c43ca978c";
+    public const string ShortSha = "734a0a0";
+    public const string UncommittedChanges = "12";
     public const string VersionSourceSha = "";
-    public const string WeightedPreReleaseNumber = "55005";
+    public const string WeightedPreReleaseNumber = "55012";
 }
