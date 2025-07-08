@@ -13,6 +13,51 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup .NET
+name: Auto Version Demo
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6.x'
+
+      - name: Install GitVersion
+        run: dotnet tool install --global GitVersion.Tool
+
+      - name: Add dotnet global tools to PATH
+        # This ensures dotnet-gitversion is on the PATH for subsequent steps
+        run: echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
+
+      - name: Compute version
+        id: gitversion
+        run: |
+          # now dotnet-gitversion will be found
+          VERSION=$(dotnet-gitversion /showvariable FullSemVer)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Add to run summary
+        run: |
+          echo "## 📦 Build Version" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Version:** `${{ steps.gitversion.outputs.version }}`" >> $GITHUB_STEP_SUMMARY
+
+      - name: Build & run DemoApp
+        working-directory: DemoApp
+        run: |
+          dotnet restore
+          dotnet build --no-restore
+          dotnet run --no-build
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '6.x'
