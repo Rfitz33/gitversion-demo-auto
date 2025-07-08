@@ -9,31 +9,36 @@ jobs:
   version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: "8.x"
+      # 1) Checkout your code
+      - name: Check out code
+        uses: actions/checkout@v3
 
-      - name: Install GitVersion
-        run: dotnet tool install --global GitVersion.Tool
-
-      - name: Add dotnet global tools to PATH
-        run: echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
-
-      - name: Compute version
+      # 2) Run GitVersion via the official Action
+      - name: Calculate version
         id: gitversion
-        run: |
-          VERSION=$(dotnet-gitversion '/showvariable' 'FullSemVer')
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
+        uses: gittools/actions/gitversion/execute@v0.10.0
+        with:
+          # optional: default to ContinuousDelivery mode
+          mode: ContinuousDelivery
 
+      # 3) Show the computed version in the logs
+      - name: Log version
+        run: |
+          echo "FullSemVer: ${{ steps.gitversion.outputs.fullSemVer }}"
+          echo "Major:      ${{ steps.gitversion.outputs.major }}"
+          echo "Minor:      ${{ steps.gitversion.outputs.minor }}"
+          echo "Patch:      ${{ steps.gitversion.outputs.patch }}"
+          echo "Commits:    ${{ steps.gitversion.outputs.commitsSinceVersionSource }}"
+
+      # 4) Add version to the run summary
       - name: Add to run summary
         run: |
           echo "## 📦 Build Version" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "- **Version:** \`${{ steps.gitversion.outputs.version }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **FullSemVer:** `${{ steps.gitversion.outputs.fullSemVer }}`" \
+            >> $GITHUB_STEP_SUMMARY
 
+      # 5) Build & run your demo app
       - name: Build & run DemoApp
         working-directory: DemoApp
         run: |
