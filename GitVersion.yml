@@ -1,0 +1,5 @@
+mode: ContinuousDelivery
+tag-prefix: 'v'
+branches:
+  main:
+    increment: Minor
